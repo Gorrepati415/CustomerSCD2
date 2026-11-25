@@ -10,10 +10,10 @@ on:
 
 jobs:
   upload-python-files:
-
     runs-on: ubuntu-latest
 
     steps:
+
       # Step 1: Get files from GitHub
       - name: Checkout GitHub Repository
         uses: actions/checkout@v4
@@ -34,7 +34,9 @@ jobs:
       # Step 4: Upload Python files to S3
       - name: Upload Python Files to S3
         run: |
-          Bucket_Name="batch2026-temp"
+          aws s3 sync ./scripts s3://batch2026-temp/glue_scripts/ \
+            --exclude "*" \
+            --include "*.py"
 
       # Step 5: Verify uploaded files
       - name: Verify S3 Upload
