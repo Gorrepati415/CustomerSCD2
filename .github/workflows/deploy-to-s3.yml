@@ -38,7 +38,4 @@ jobs:
                   --exclude "*" \
                   --include "*.py"
 
-      - name: Verify S3 Files
-        run: |
-                echo "Checking uploaded files"
-                aws s3 ls s3://batch2026-temp/glue_scripts/
+
