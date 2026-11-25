@@ -29,16 +29,16 @@ jobs:
       # Step 3: Verify AWS connection
       - name: Check AWS Identity
         run: |
-          aws sts get-caller-identity
+            aws sts get-caller-identity
 
-      # Step 4: Upload Python files to S3
-      - name: Upload Python Files to S3
+      - name: Upload Python Files
         run: |
-          aws s3 sync ./scripts s3://batch2026-temp/glue_scripts/ \
-            --exclude "*" \
-            --include "*.py"
+                echo "Uploading files to batch2026-temp"
+                aws s3 sync ./scripts s3://batch2026-temp/glue_scripts/ \
+                  --exclude "*" \
+                  --include "*.py"
 
-      # Step 5: Verify uploaded files
-      - name: Verify S3 Upload
+      - name: Verify S3 Files
         run: |
-          aws s3 ls s3://batch2026-temp/glue_scripts/
+                echo "Checking uploaded files"
+                aws s3 ls s3://batch2026-temp/glue_scripts/
