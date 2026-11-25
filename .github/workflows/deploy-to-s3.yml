@@ -39,4 +39,4 @@ jobs:
       # Step 5: Verify uploaded files
       - name: Verify S3 Upload
         run: |
-          aws s3 ls s3://data-demo-first/glue/scripts/
+          aws s3 ls s3://batch2026-temp/glue_scripts/
