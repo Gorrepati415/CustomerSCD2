@@ -34,7 +34,7 @@ jobs:
       - name: Upload Python Files
         run: |
                 echo "Uploading files to batch2026-temp"
-                aws s3 sync ./scripts s3://batch2026-temp/glue_scripts/ \
+                aws s3 sync ./scripts s3://batch2026-temp/glue/scripts/ \
                   --exclude "*" \
                   --include "*.py"
 
